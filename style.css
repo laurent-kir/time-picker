@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #222;
+  background-color: #e1e1e1;
+}
+.picker {
+  font-family: "EB Garamond", Garamond, serif;
+  font-size: 1.5rem;
+  font-size: clamp(1.3rem, 4vmin, 2rem);
+  user-select: none;
+}
+.picker-time {
+  height: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1em;
+}
+.picker-time__item {
+  min-width: 2ch;
+  text-align: center;
+  cursor: pointer;
+}
+.picker-time__value {
+  display: inline-block;
+}
+.picker-time__item.__active {
+  color: brown;
+  text-shadow: 0 0 1px #ce9a9a;
+  pointer-events: none;
+}
+.picker__body {
+  padding: 1em;
+}
+.picker-clock {
+  counter-reset: lines -1;
+  width: 15em;
+  height: 15em;
+  position: relative;
+  background-color: #eee;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #aaa;
+}
+.picker-clock.__min {
+  counter-reset: lines -5;
+}
+.picker-clock__dot {
+  width: 2.5%;
+  height: 2.5%;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  margin: auto;
+  background-color: #444;
+  border-radius: inherit;
+}
+.picker-clock__arrow {
+  width: 1%;
+  height: 46%;
+  position: absolute;
+  left: 49.5%;
+  top: 4%;
+  background-color: #666;
+  transform-origin: bottom;
+  transform: rotate(var(--d));
+}
+.picker-clock__arrow::before {
+  content: "";
+  width: 1.4em;
+  height: 1.4em;
+  position: absolute;
+  left: calc(50% - 0.7em);
+  top: -4%;
+  background-color: inherit;
+  border-radius: 50%;
+}
+.picker-clock__sections {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  margin: 2.5%;
+}
+.picker-clock__section {
+  counter-increment: lines;
+  width: 2px;
+  height: 50%;
+  position: absolute;
+  left: calc(50% - 1px);
+  top: 0;
+  transform-origin: bottom;
+  transform: rotate(var(--d));
+  z-index: 1;
+}
+.picker-clock.__min .picker-clock__section {
+  counter-increment: lines 5;
+}
+.picker-clock__section.__active {
+  color: white;
+}
+.picker-clock__section::after {
+  content: counter(lines);
+  width: 2ch;
+  display: block;
+  margin-left: -1ch;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transform: rotate(calc(-1 * var(--d)));
+}
+.picker-clock__section:first-child::after {
+  content: "12";
+}
+.picker-clock.__min .picker-clock__section:first-child::after {
+  content: "00";
+}
+.picker-clock.__min .picker-clock__section:nth-child(2)::after {
+  content: "05";
+}

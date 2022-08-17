@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time picker</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="picker">
+      <header class="picker-time">
+        <div>
+          <span class="picker-time__item picker-time__value __active">12</span> :
+          <span class="picker-time__item picker-time__value">00</span>
+        </div>
+        <div>
+          <div class="picker-time__item picker-time__period __active">AM</div>
+          <div class="picker-time__item picker-time__period">PM</div>
+        </div>
+      </header>
+      <section class="picker__body">
+        <div class="picker-clock">
+          <div class="picker-clock__sections">
+            <div class="picker-clock__section" style="--d:0deg"></div>
+            <div class="picker-clock__section" style="--d:30deg"></div>
+            <div class="picker-clock__section" style="--d:60deg"></div>
+            <div class="picker-clock__section" style="--d:90deg"></div>
+            <div class="picker-clock__section" style="--d:120deg"></div>
+            <div class="picker-clock__section" style="--d:150deg"></div>
+            <div class="picker-clock__section" style="--d:180deg"></div>
+            <div class="picker-clock__section" style="--d:210deg"></div>
+            <div class="picker-clock__section" style="--d:240deg"></div>
+            <div class="picker-clock__section" style="--d:270deg"></div>
+            <div class="picker-clock__section" style="--d:300deg"></div>
+            <div class="picker-clock__section" style="--d:330deg"></div>
+          </div>
+          <div class="picker-clock__arrow"></div>
+          <div class="picker-clock__dot"></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
